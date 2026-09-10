@@ -25,6 +25,16 @@ No tool names to memorize. No Python to write. No menus to click.
 - **Security whitelist**: configurable path and tool restrictions
 - **One-click install**: 30 seconds from clone to running
 
+## Also available as an Agent Skill 🚀
+
+Prefer a ready-made agent skill (no MCP client configuration needed)? The same 1300+ tools are packaged as **ArcGIS Agent** — a portable skill with an agent-facing playbook, installable in one command:
+
+- 📦 GitHub repo: **https://github.com/zhaojj662/arcgis-agent**
+- 🧩 Skill registry page: https://clawhub.ai/zhaojj662/skills/arcgis-agent
+- ⌨️ Install: `clawhub install arcgis-agent`
+
+Works with WorkBuddy, OpenClaw, Claude Code and any agent that reads SKILL.md.
+
 ## Supported Modules
 
 | Module | Tools | Highlights |
