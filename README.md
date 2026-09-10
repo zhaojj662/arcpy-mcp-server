@@ -19,7 +19,7 @@ No tool names to memorize. No Python to write. No menus to click.
 
 ## Features
 
-- **1300+ tools** across 15 modules: management(392), sa(355), ddd(144), stats(44), ga(39), analysis(38) + 9 more
+- **2500+ tools** across 46 toolboxes: management(431), sa(355+), ia(328, Image Analyst), ddd(144), stats(44), ga(39), analysis(38), un/nd/tn (utility network), geoai (deep learning) + 36 more
 - **MCP standard**: works with AutoClaw, Claude Code, Codex, any MCP client
 - **Zero dependencies**: uses ArcGIS Pro's built-in Python 3.9
 - **Security whitelist**: configurable path and tool restrictions
@@ -85,7 +85,7 @@ Verify:
 
 ```powershell
 Invoke-RestMethod http://127.0.0.1:8765/health
-# {"status":"ok","server":"arcpy-mcp-server","version":"2.0","tools":1300}
+# {"status":"ok","server":"arcpy-mcp-server","version":"2.1","tools":2500,"modules":46}
 ```
 
 ### Configure AI Client

@@ -15,7 +15,7 @@ sys.stdout = _old
 
 sys.modules['datetime'] = _real_dt
 
-VER = "2.0"
+VER = "2.1"
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8765
 
 # ============================================================
@@ -34,11 +34,39 @@ TYPE_MAP = {
     "Coordinate System": "string", "Linear Unit": "string",
 }
 
-# Core modules to register (exclude internal/overwhelming modules)
+# Tool modules to register (real geoprocessing toolboxes only).
+# NOTE: deliberately EXCLUDED non-toolbox Python APIs (cim, mp, da, charts,
+# pdfdocument, metadata, geometries, arcobjects, mixins, ...) and the
+# mirrored alias modules (arcpy, toolbox) to avoid thousands of duplicates.
 INCLUDE_MODULES = [
-    'analysis', 'management', 'conversion', 'sa', 'ga', 'ddd',
-    'stats', 'cartography', 'geocoding', 'stpm', 'na', 'nax',
-    'edit', 'server', 'sharing',
+    # --- Core local toolboxes (always available with basic license) ---
+    'analysis', 'management', 'conversion', 'edit', 'cartography',
+    'geocoding', 'sharing', 'server',
+    # --- Extension toolboxes (register harmlessly; calls need the license) ---
+    'sa',          # Spatial Analyst
+    'ga',          # Geostatistical Analyst
+    'ddd',         # 3D Analyst
+    'ia',          # Image Analyst (raster functions, deep learning raster tools)
+    'geoai',       # GeoAI (deep learning: text/feature/time-series AI)
+    'md',          # Multidimensional raster (netCDF/HDF, climate data)
+    'stats', 'stpm',             # Spatial Statistics / Space-Time Pattern Mining
+    'na', 'nax',                 # Network Analyst (legacy + new)
+    'tn', 'un', 'nd',            # Trace Network / Utility Network / diagrams
+    'parcel',                    # Parcel fabric
+    'lr', 'locref',              # Linear referencing / Roads and Highways
+    'ca',                        # Crime Analysis
+    'td',                        # Territory Design
+    'ba',                        # Business Analyst
+    'defense', 'topographic',    # Defense Mapping / Topographic Production
+    'aviation', 'maritime', 'bathymetry',   # Airports/Naval/marine extensions
+    'indoors', 'indoorpositioning',          # Indoor GIS
+    'intelligence',              # Intelligence (i3s, movement)
+    'rm', 'oi',                  # Ortho mapping / Oriented Imagery
+    'reviewer', 'wmx',           # Data Reviewer / Workflow Manager
+    'interop',                   # Data Interoperability (ETL)
+    'transit',                   # Transit (GTFS)
+    # --- Portal / Enterprise services (calls need an active portal) ---
+    'ra', 'geoanalytics', 'gapro', 'sfa', 'agolservices',
 ]
 
 for mod_name in dir(arcpy):
